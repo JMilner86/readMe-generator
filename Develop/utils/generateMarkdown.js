@@ -1,3 +1,21 @@
+const fs = require('fs');
+
+const writeFile = fileContent => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./dist/README.mp', fileContent, err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true,
+        message: 'File created!'
+      });
+    });
+  });
+};
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
@@ -11,13 +29,52 @@ function renderLicenseLink(license) {}
 function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+const generateMarkdown = data => {
   return `# ${data.title}
+${renderLicenseBadge(data.license)}
+
+## Description
+${data.description}
+
+## Table of Contents
+
+-[Installation](#installation)
+-[Test](#test)
+-[Usage](#usage)
+-[License](#license)
+-[Contributions](#contribution)
+-[Additional Questions](#email)
+
+## Installation
+
+${data.installation}
+
+
+## Test
+
+${data.test}
+
+## Usage
+
+${data.usage}
+
+## License
+
+${data.license}
+
+## Contributions
+
+${data.contribution}
+
+## Additional Questions
+
+*Contact me with additional questions
+${data.email}
 
 `;
 }
 
-module.exports = generateMarkdown;
+module.exports = {generateMarkdown};
 
 
 // WHEN I enter my project title

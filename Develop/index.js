@@ -5,7 +5,7 @@ const init = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'README Title',
+            name: 'title',
             message:'Enter a title for your README.md file (Required)',
             validate: descInput => {
                 if (descInput) {
@@ -18,7 +18,7 @@ const init = () => {
         },
         {
             type: 'input',
-            name: 'Description',
+            name: 'description',
             message: 'Enter a description for your file (Required)',
             validate: descInput => {
                 if (descInput) {
@@ -31,7 +31,7 @@ const init = () => {
         },
         {
             type: 'input',
-            name: 'Installation',
+            name: 'installation',
             message: 'Please list the command(s) needed to install program (Required)',
             validate: descInput => {
                 if (descInput) {
@@ -44,7 +44,7 @@ const init = () => {
         },
         {
             type: 'input',
-            name: 'usage information',
+            name: 'usage',
             message: 'Enter usage information for users (Required)',
             validate: descInput => {
                 if (descInput) {
@@ -57,7 +57,7 @@ const init = () => {
         },
         {
             type: 'input',
-            name: 'contribution guidelines',
+            name: 'contribution',
             message: 'Enter contribution information for users (Required)',
             validate: descInput => {
                 if (descInput) {
@@ -70,7 +70,7 @@ const init = () => {
         },
         {
             type: 'input',
-            name: 'test instructions',
+            name: 'test',
             message: 'Enter instructions to test program'
         },
         {
@@ -99,7 +99,7 @@ const init = () => {
         },
         {
             type: 'input',
-            name: 'GitHub',
+            name: 'github',
             message: 'Enter your GitHub username (Required)',
             validate: descInput => {
                 if (descInput) {
@@ -124,7 +124,7 @@ const init = () => {
               }
         }
     ])
-}
+};
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
