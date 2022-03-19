@@ -1,4 +1,6 @@
+const { write } = require('fs');
 const inquirer = require('inquirer');
+const writeFile = require('./utils/generateMarkdown.js');
 
 
 const init = () => {
@@ -7,8 +9,8 @@ const init = () => {
             type: 'input',
             name: 'title',
             message:'Enter a title for your README.md file (Required)',
-            validate: descInput => {
-                if (descInput) {
+            validate: titleInput => {
+                if (titleInput) {
                   return true;
                 } else {
                   console.log('Please enter a title');
@@ -33,8 +35,8 @@ const init = () => {
             type: 'input',
             name: 'installation',
             message: 'Please list the command(s) needed to install program (Required)',
-            validate: descInput => {
-                if (descInput) {
+            validate: installInput => {
+                if (installInput) {
                   return true;
                 } else {
                   console.log('Please list the commands necessary or N/A');
@@ -46,8 +48,8 @@ const init = () => {
             type: 'input',
             name: 'usage',
             message: 'Enter usage information for users (Required)',
-            validate: descInput => {
-                if (descInput) {
+            validate: usageInput => {
+                if (usageInput) {
                   return true;
                 } else {
                   console.log('Please enter usage information');
@@ -59,8 +61,8 @@ const init = () => {
             type: 'input',
             name: 'contribution',
             message: 'Enter contribution information for users (Required)',
-            validate: descInput => {
-                if (descInput) {
+            validate: contributeInput => {
+                if (contributeInput) {
                   return true;
                 } else {
                   console.log('Please enter contribution information/rules');
@@ -88,8 +90,8 @@ const init = () => {
                 'BSL-1.0',
                 'Unlicense'
             ],
-            validate: descInput => {
-                if (descInput) {
+            validate: licensesInput => {
+                if (licensesInput) {
                   return true;
                 } else {
                   console.log('Please select an option');
@@ -101,8 +103,8 @@ const init = () => {
             type: 'input',
             name: 'github',
             message: 'Enter your GitHub username (Required)',
-            validate: descInput => {
-                if (descInput) {
+            validate: githubInput => {
+                if (githubInput) {
                   return true;
                 } else {
                   console.log('Please enter your GitHub username');
@@ -114,8 +116,8 @@ const init = () => {
             type: 'input',
             name: 'email',
             message: 'Enter your email to be contacted for additional questions (Required)',
-            validate: descInput => {
-                if (descInput) {
+            validate: emailInput => {
+                if (emailInput) {
                   return true;
                 } else {
                   console.log('Please enter a valid email address');
@@ -126,22 +128,9 @@ const init = () => {
     ])
 };
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+
+
 
 // Function call to initialize app
-init();
-
-
-// WHEN I enter my project title
-// THEN this is displayed as the title of the README
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-// WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-// WHEN I enter my GitHub username
-// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-// WHEN I enter my email address
-// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-// WHEN I click on the links in the Table of Contents
-// THEN I am taken to the corresponding section of the README
+init()
+.then(writeFile);
