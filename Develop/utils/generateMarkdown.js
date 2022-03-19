@@ -18,7 +18,12 @@ const writeFile = fileContent => {
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const renderLicenseBadge = license => {
+  if (license === 'None') {
+    return ''
+  }
+    return `![image](https://img.shields.io/badge/license-${license.replace('-', '--')}-brightgreen)`;
+};
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -48,7 +53,6 @@ ${data.description}
 ## Installation
 
 ${data.installation}
-
 
 ## Test
 
