@@ -28,9 +28,9 @@ const renderLicenseBadge = license => {
 
 const renderLicenseLink = license => {
   if (license === 'None') {
-    return '';
+    return 'None';
   }
-  return  
+  
   let licenseDesc;
 
   switch(license) {
@@ -61,7 +61,7 @@ const renderLicenseLink = license => {
   }
 
   return `
-  ##License
+  ## License
 [https://choosealicense.com/licenses/${license.toLowerCase()}](https://choosealicense.com/licenses/${license.toLowerCase()})
 ${licenseDesc}
 `;
@@ -113,7 +113,10 @@ ${data.contribution}
 ## Additional Questions
 
 *Contact me with additional questions
+
+
 ${data.email}
+
 [https://github.com/${data.github}](https://github.com/${data.github})
 
 `;
