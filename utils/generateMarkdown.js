@@ -61,7 +61,7 @@ const renderLicenseLink = license => {
   }
 
   return `
-  ## License
+  
 [https://choosealicense.com/licenses/${license.toLowerCase()}](https://choosealicense.com/licenses/${license.toLowerCase()})
 ${licenseDesc}
 `;
@@ -86,7 +86,7 @@ ${data.description}
 
 -[License](#license)
 
--[Contributions](#contribution)
+-[Contributions](#contributions)
 
 -[Additional Questions](#email)
 
@@ -113,7 +113,6 @@ ${data.contribution}
 ## Additional Questions
 
 *Contact me with additional questions
-
 
 ${data.email}
 
